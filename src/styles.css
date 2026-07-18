@@ -1,0 +1,149 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Bento design tokens
+ * Palette: primary=#FAD4C0, secondary=#80A1C1, success=#16A34A,
+ * warning=#D97706, danger=#DC2626, surface=#FFF5E6, text=#111827.
+ * Fonts: Inter (display/body), JetBrains Mono (labels/caps).
+ * Spacing scale 4/8/12/16/24/32. Radius 4/8.
+ */
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+}
+
+:root {
+  --radius: 8px;
+
+  /* Bento palette in oklch */
+  --surface: oklch(0.977 0.017 78);        /* #FFF5E6 */
+  --surface-2: oklch(0.955 0.02 78);       /* slightly deeper cream */
+  --ink: oklch(0.196 0.031 265);           /* #111827 */
+
+  --background: var(--surface);
+  --foreground: var(--ink);
+
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+
+  --primary: oklch(0.882 0.055 40);        /* #FAD4C0 peach */
+  --primary-foreground: var(--ink);
+
+  --secondary: oklch(0.696 0.075 245);     /* #80A1C1 slate blue */
+  --secondary-foreground: oklch(1 0 0);
+
+  --muted: oklch(0.955 0.02 78);
+  --muted-foreground: oklch(0.45 0.02 265);
+
+  --accent: oklch(0.882 0.055 40);
+  --accent-foreground: var(--ink);
+
+  --success: oklch(0.63 0.17 148);         /* #16A34A */
+  --success-foreground: oklch(1 0 0);
+  --warning: oklch(0.68 0.16 55);          /* #D97706 */
+  --warning-foreground: oklch(1 0 0);
+  --destructive: oklch(0.6 0.22 27);       /* #DC2626 */
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.9 0.02 78);
+  --input: oklch(0.9 0.02 78);
+  --ring: oklch(0.696 0.075 245);
+}
+
+.dark {
+  --surface: oklch(0.18 0.02 265);
+  --surface-2: oklch(0.22 0.025 265);
+  --ink: oklch(0.98 0.005 78);
+
+  --background: var(--surface);
+  --foreground: var(--ink);
+  --card: oklch(0.24 0.025 265);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.24 0.025 265);
+  --popover-foreground: var(--ink);
+  --primary: oklch(0.85 0.06 40);
+  --primary-foreground: oklch(0.196 0.031 265);
+  --secondary: oklch(0.62 0.08 245);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.28 0.025 265);
+  --muted-foreground: oklch(0.78 0.01 78);
+  --accent: oklch(0.85 0.06 40);
+  --accent-foreground: oklch(0.196 0.031 265);
+  --success: oklch(0.7 0.17 148);
+  --success-foreground: oklch(0.196 0.031 265);
+  --warning: oklch(0.75 0.16 55);
+  --warning-foreground: oklch(0.196 0.031 265);
+  --destructive: oklch(0.7 0.2 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.62 0.08 245);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
